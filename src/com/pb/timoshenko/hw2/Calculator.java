@@ -26,8 +26,7 @@ public class Calculator {
                 if (operand2==0){
                     System.out.println("Error");
                 }
-                else
-                {
+                else {
                     System.out.println(operand1 + " / " + operand2 + " = " + (operand1*1.0/operand2));
                 }
                 break;
