@@ -16,10 +16,10 @@ public class CapitalLetter {
         String text = sc.nextLine();
 
         String[] partsText = text.split(" ");
+
         StringBuilder resText = new StringBuilder();
         for (String part:partsText){
             resText.append(bigLetter(part)).append(" ");
-        //bigLetter(part);
             }
         resText.deleteCharAt(resText.length()-1);
         System.out.println(resText);
