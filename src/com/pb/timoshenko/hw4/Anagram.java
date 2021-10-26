@@ -7,12 +7,12 @@ public class Anagram {
 
     //удаление всех знаков припинания
     public static String rmPunct(String str) {
-        String res = "";
+        StringBuilder res = new StringBuilder();
         for (Character ch : str.toCharArray()) {
             if(Character.isLetterOrDigit(ch))
-                res = res + ch;
+                res.append(ch);
         }
-        return res;
+        return res.toString();
     }
 
     //сортировка по алфавиту массива букв
