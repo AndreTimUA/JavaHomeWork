@@ -1,5 +1,7 @@
 package com.pb.timoshenko.hw6;
 
+import java.util.Objects;
+
 public class Dog extends Animal{
 
     private String voiceDog;
@@ -36,15 +38,25 @@ public class Dog extends Animal{
         System.out.println("Dog eating ...");
     }
 
+    @Override
     public String toString() {
-        return "sdhfhjkfj";
+        return "Dog{" +
+                "voice Dog='" + voiceDog + '\'' +
+                ", alias =" + aliasDog +
+                '}';
     }
 
-    public void equals() {
-        System.out.println("sdhfhjkfj");
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Dog dog = (Dog) o;
+        return Objects.equals(voiceDog, dog.voiceDog) && Objects.equals(aliasDog, dog.aliasDog);
     }
 
+    @Override
     public int hashCode() {
-        return 12345;
+        return Objects.hash(voiceDog, aliasDog);
     }
+
 }
