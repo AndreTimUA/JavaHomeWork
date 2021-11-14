@@ -1,6 +1,5 @@
 package com.pb.timoshenko.hw7;
 
-import static javafx.scene.input.KeyCode.X;
 
 public class Atelier{
     public static void main(String[] args) {
