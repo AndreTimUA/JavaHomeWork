@@ -38,6 +38,7 @@ public class OnlineShop {
             auth.signIn(loginCheck, passCheck);
         }  catch (WrongLoginException e2) {
             System.out.println("WRONG! Enter LOGIN or PASSWORD! Try again!");
+            e2.printStackTrace();
         }
 
     }
