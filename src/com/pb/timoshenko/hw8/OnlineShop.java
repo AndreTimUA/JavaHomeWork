@@ -21,10 +21,12 @@ public class OnlineShop {
 
         try {
             auth.signUp(login, pass, passConfirm);
-        } catch (WrongLoginException e) {
-            System.out.println("WRONG! Create correct LOGIN");
-        } catch (WrongPasswordException e1){
-            System.out.println("WRONG! Create correct PASSWORD");
+        } catch (WrongLoginException ex) {
+            System.out.println("WRONG! Create correct LOGIN - " + ex);
+            return;
+        } catch (WrongPasswordException ex){
+            System.out.println("WRONG! Create correct PASSWORD - " + ex);
+            return;
         }
 
         System.out.println("-----------------------------------------");
@@ -34,11 +36,11 @@ public class OnlineShop {
         System.out.print("Enter YOUR PASSWORD - ");
         String passCheck = sc.nextLine();
 
+
         try {
             auth.signIn(loginCheck, passCheck);
-        }  catch (WrongLoginException e2) {
-            System.out.println("WRONG! Enter LOGIN or PASSWORD! Try again!");
-            e2.printStackTrace();
+        }  catch (WrongLoginException ex) {
+            System.out.println("WRONG! Enter LOGIN or PASSWORD! Try again! " + ex);
         }
 
     }
