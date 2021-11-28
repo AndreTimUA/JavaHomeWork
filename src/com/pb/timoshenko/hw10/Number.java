@@ -1,9 +1,13 @@
 package com.pb.timoshenko.hw10;
 
-public class Number {
+public class Number extends Integer{
 
-    private Number ();
-
-
+      public Number (){
 
     }
+
+
+    public double doubleValue() {
+        return 0;
+    }
+}
