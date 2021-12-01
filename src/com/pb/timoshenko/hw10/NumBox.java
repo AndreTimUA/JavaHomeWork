@@ -1,61 +1,78 @@
 package com.pb.timoshenko.hw10;
 
-public class NumBox <T extends Number>{
-    private T[] nums;
+import java.lang.Number;
 
-   public NumBox (int size){
-        nums = (T[]) new Number[size];
+public class NumBox <T extends Number>{
+
+    private T[] array;
+    private int size;
+
+    public NumBox (int size){
+        this.array = (T[]) new Number[size];
+
     }
 
     public T get (int index){
-        return nums[index];
+        return array[index];
     }
 
-    public void setNum (int index, T nums){
-        this.nums[index] = nums;
-    }
-
-    public int length(){
-        int count = 0;
-        for(T i : nums){
-            if(!(i == null)){
-                count++;
-            } else count+=0;
+    public void printArray (){
+        for (T a : array) {
+            System.out.print(a + " ");
         }
-        return count;
+        System.out.println();
     }
 
-//    ///////////////////////////////////////////////////////////
-//    void add(T t) throws Exception {
-//        if(this.filled >= this.num.length){
-//            throw new Exception("Array already filled!");
-//        }
-//        this.num[this.filled] = t;
-//        this.filled++;
-//    }
-//
-//    public double sum() {
-//        double sum = 0.0;
-//        for(T i : num){
-//            if(i == null){
-//                sum+=0;
-//            } else sum+=i.doubleValue();
-//        }
-//        return sum;
-//    }
-//
-//    public double average(){
-//        double avеrage = (sum()/length());
-//        return avеrage;
-//    }
-//
+    public int length() {
+        int size = 0;
+        for (T a : array) {
+            if (a != null) {
+                size++;
+            }
+        }
+        return size;
+    }
+
+    public void add(T num) throws Exception {
+        if (length() < array.length) {
+            int s = 0;
+            for (int i = 0; i < array.length; i++) {
+                if (s < array.length) {
+                    if (array[i] == null) {
+                        array[i] = num;
+                        break;
+                    } else {
+                        s++;
+                    }
+                }
+            }
+        } else {
+            throw new Exception("Array's full!");
+        }
+    }
+
+    public double sum() {
+        double sum = 0.0;
+        for (T a : array) {
+            if (a != null)
+                sum += a.doubleValue();
+        }
+        return sum;
+    }
+
+    public double average () {
+        double res = (sum()/length());
+        return res;
+    }
+
     public T max(){
-        T max = nums[0];
-        for(int i = 0; i < nums.length; i++){
-            if(nums[i] > max) {
-                max = nums[i];
+        T max = array[0];
+        for(T a : array){
+            if( a.doubleValue() > max.doubleValue()) {
+                max = a;
             }
         }
         return max;
     }
+
 }
