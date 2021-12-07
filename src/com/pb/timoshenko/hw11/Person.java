@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-public class Person{
+public class Person implements Comparable<Person>{
     private String name;
     private Date dateBirthday;
     private final List <Integer> phone;
@@ -23,6 +23,10 @@ public class Person{
         this.dateEdit = dateEdit;
     }
     public Person(){
+        this.name = "Test";
+        this.dateBirthday = new Date();
+        this.address = "Test";
+        this.dateEdit = new Date();
         this.phone = new ArrayList<>();
     }
 
@@ -74,7 +78,7 @@ public class Person{
                 ", phone=" + phone +
                 ", address='" + address + '\'' +
                 ", dateEdit=" + formatDate.format(dateEdit) +
-                '}';
+                '}' + "\n";
     }
 
     public void createContact() throws ParseException {
@@ -100,5 +104,10 @@ public class Person{
         System.out.println();
         System.out.println("-----------------------------");
         System.out.println();
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        return 0;
     }
 }
