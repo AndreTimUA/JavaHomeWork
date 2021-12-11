@@ -1,16 +1,23 @@
 package com.pb.timoshenko.hw11;
 
-import java.sql.SQLOutput;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.*;
+import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class PhonesBook {
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) throws ParseException, IOException {
         System.out.println("|----------Welcome to Phone's Book!----------|");
         ArrayList<Person> persons = new ArrayList<>();
         SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
         Scanner sc = new Scanner(System.in);
+// JSON
+        ObjectMapper mapper = new ObjectMapper();
+//        mapper.enable(SerializationFeature.INDENT_OUTPUT);
 // Create test contact
         persons.add(new Person());
         persons.add(new Person());
@@ -67,18 +74,39 @@ public class PhonesBook {
             }
 // 5 - Edite contact
             else if (numComand == 5){
-                System.out.print("Enter name for editing");
-
+                System.out.print("Enter name for editing: ");
+                String nameEdite = sc.next();
+                for (Person ps:persons){
+                    if (Objects.equals(ps.getName(), nameEdite)){
+                        System.out.print("Enter second phone: ");
+                        Integer number = sc.nextInt();
+                        List<Integer> numTemp = ps.getPhone();
+                        numTemp.add(number);
+                        ps.setPhone(numTemp);
+                        ps.setDateEdit(new Date());
+                        System.out.println(numTemp);
+                    }
+                }
             }
 // 6 - Save phone book in file *.json
             else if (numComand == 6){
                 System.out.print("Enter path file for save JSON file: ");
-
+                String personsJson = mapper.writeValueAsString(persons);
+                File file = Paths.get("./src/com/pb/timoshenko/hw11/persons.json").toFile();
+                FileOutputStream outputStream = new FileOutputStream(file);
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+                objectOutputStream.writeObject(personsJson);
+                objectOutputStream.close();
+                System.out.println("JSON file created.");
             }
 // 7 - Import phone book
             else if (numComand == 7){
-                System.out.print("Enter path file: ");
-
+                System.out.println("Enter path file: ");
+                //mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+                File file = Paths.get("./src/com/pb/timoshenko/hw11/personsImport.json").toFile();
+                List<Person> personsImport = Arrays.asList(mapper.readValue(file, Person[].class));
+                personsImport.forEach(System.out::println);
+                persons.addAll(personsImport);
             }
 // 9 - View phone book
             else if (numComand == 9) {

@@ -13,10 +13,14 @@
       <excludeFolder url="file://$MODULE_DIR$/src/com/pb/timoshenko/hw7" />
       <excludeFolder url="file://$MODULE_DIR$/src/com/pb/timoshenko/hw8" />
       <excludeFolder url="file://$MODULE_DIR$/src/com/pb/timoshenko/hw9" />
-      <excludeFolder url="file://$MODULE_DIR$/src/com/pb/timoshenko/test" />
       <excludeFolder url="file://$MODULE_DIR$/src/com/pb/timoshenko/hw10" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/pb/timoshenko/test_final" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/pb/timoshenko/test" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="jackson-annotations-2.13.0" level="project" />
+    <orderEntry type="library" name="jackson-core-2.13.0" level="project" />
+    <orderEntry type="library" name="jackson-databind-2.13.0" level="project" />
   </component>
 </module>

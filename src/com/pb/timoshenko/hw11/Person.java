@@ -2,15 +2,13 @@ package com.pb.timoshenko.hw11;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Person implements Comparable<Person>{
     private String name;
+
     private Date dateBirthday;
-    private final List <Integer> phone;
+    private List <Integer> phone;
     private String address;
     private Date dateEdit;
     SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
@@ -30,6 +28,7 @@ public class Person implements Comparable<Person>{
         this.phone = new ArrayList<>();
     }
 
+
     public void setName(String name) {
         this.name = name;
     }
@@ -38,9 +37,9 @@ public class Person implements Comparable<Person>{
         this.dateBirthday = dateBirthday;
     }
 
-    public void setPhone(int phone) {
-        this.phone.add(phone);
-    }
+ public void setPhone(List<Integer> phone) {
+        this.phone = phone;
+   }
 
     public void setAddress(String address) {
         this.address = address;
@@ -79,6 +78,19 @@ public class Person implements Comparable<Person>{
                 ", address='" + address + '\'' +
                 ", dateEdit=" + formatDate.format(dateEdit) +
                 '}' + "\n";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(name, person.name) && Objects.equals(dateBirthday, person.dateBirthday) && Objects.equals(phone, person.phone) && Objects.equals(address, person.address) && Objects.equals(dateEdit, person.dateEdit) && Objects.equals(formatDate, person.formatDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, dateBirthday, phone, address, dateEdit, formatDate);
     }
 
     public void createContact() throws ParseException {
