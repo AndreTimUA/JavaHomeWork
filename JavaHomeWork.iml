@@ -14,9 +14,10 @@
       <excludeFolder url="file://$MODULE_DIR$/src/com/pb/timoshenko/hw8" />
       <excludeFolder url="file://$MODULE_DIR$/src/com/pb/timoshenko/hw9" />
       <excludeFolder url="file://$MODULE_DIR$/src/com/pb/timoshenko/hw10" />
-      <excludeFolder url="file://$MODULE_DIR$/src/com/pb/timoshenko/test_final" />
-      <excludeFolder url="file://$MODULE_DIR$/src/com/pb/timoshenko/test" />
       <excludeFolder url="file://$MODULE_DIR$/src/com/pb/timoshenko/hw11" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/pb/timoshenko/hw12" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/pb/timoshenko/test" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/pb/timoshenko/test_final" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
