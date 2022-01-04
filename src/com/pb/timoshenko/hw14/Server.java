@@ -3,6 +3,8 @@ package com.pb.timoshenko.hw14;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedList;
 
 @SuppressWarnings("ALL")
@@ -30,6 +32,7 @@ class Servers extends Thread {
     private final Socket socket;
     private final BufferedReader in;
     private final BufferedWriter out;
+    SimpleDateFormat formatDate = new SimpleDateFormat("dd-MM-yy hh:mm:s");
 
     public Servers(Socket socket) throws IOException {
         this.socket = socket;
@@ -68,7 +71,7 @@ class Servers extends Thread {
 
     private void send(String msg) {
         try {
-            out.write(msg + "\n");
+            out.write(formatDate.format(new Date())+ "\n " + msg + "\n");
             out.flush();
         } catch (IOException ignored) {}
 

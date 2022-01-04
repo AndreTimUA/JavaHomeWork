@@ -10,6 +10,7 @@ import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.stream.Stream;
 
 public class PhonesBook {
     public static void main(String[] args) throws ParseException, IOException {
@@ -112,7 +113,7 @@ public class PhonesBook {
             }
 // 9 - View phone book
             else if (numComand == 9) {
-                System.out.println(persons);
+                Stream.of(persons).forEach(System.out::println);
             }
 // 0 - Exit
             else if (numComand == 0) {

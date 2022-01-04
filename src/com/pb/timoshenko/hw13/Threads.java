@@ -31,7 +31,7 @@ public class Threads {
             }
         }
 
-        public synchronized void put() {
+        public synchronized void put() throws InterruptedException {
             while (running) {
                 while (buffer.size() >= 5) {
                     try {
@@ -74,7 +74,11 @@ public class Threads {
 
         public void run() {
             for (int i = 1; i < 5; i++) {
-                buffer.put();
+                try {
+                    buffer.put();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
